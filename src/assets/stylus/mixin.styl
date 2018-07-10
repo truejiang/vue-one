@@ -1,0 +1,12 @@
+// 溢出隐藏省略号的父类
+.overflowHiddenEllipsisParent
+  overflow hidden
+  text-overflow ellipsis
+  -webkit-box-orient vertical
+  display -webkit-box
+// 多行超出省略号 $line-height是行高，$lines是想溢出多少行隐藏
+overflowHiddenEllipsisLines($line-height, $lines)
+  @extend .overflowHiddenEllipsisParent
+  line-height unit($line-height, 'px')
+  max-height unit($line-height * $lines, 'px')
+  -webkit-line-clamp $lines
