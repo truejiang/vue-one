@@ -7,8 +7,16 @@
             图文
           </router-link>
         </li>
-        <li>阅读</li>
-        <li>音乐</li>
+        <li @click="hideSlider">
+          <router-link tag="span" to="/read">
+            阅读
+          </router-link>
+        </li>
+        <li @click="hideSlider">
+          <router-link tag="span" to="/music">
+            音乐
+          </router-link>
+        </li>
         <li>影视</li>
         <li>关于</li>
       </ul>

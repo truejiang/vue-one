@@ -6,3 +6,6 @@ export const currentDate = state => state.currentDate
 
 // 当前OneList
 export const currentOneList = state => state.currentOneList
+
+// 点击的图文详情内容
+export const oneImageTextDetail = state => state.oneImageTextDetail

@@ -55,9 +55,7 @@ export default {
     coverMsg () {
       let {date, menu: {vol}, content_list: [{forward}]} = this.currentOneList
       date = new Date(date).toDateString().split(' ')
-      let month = date[1]
-      let day = date[2]
-      let year = date[3]
+      let [, month, day, year] = date
       return {month, day, year, vol, forward}
     }
   },
@@ -65,7 +63,6 @@ export default {
     currentOneList (newData, oldData) {
       if (newData.id > 0 || oldData.id > 0) {
         this._getCoverBg()
-
         this.contentList = this.currentOneList.content_list.forEach((x, index, arr) => {
           if (index === 1 | index === 4) {
             getArticle(x.item_id).then((res) => {
@@ -87,7 +84,6 @@ export default {
 @import '~@/assets/stylus/mixin.styl'
 .cover-wrapper
   width 100%
-  margin-top 44px
   .cover-bg
     position relative
     background-repeat no-repeat

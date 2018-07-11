@@ -1,5 +1,5 @@
 <template>
-  <div class="one-wrapper">
+  <div class="music-wrapper">
     <router-view></router-view>
   </div>
 </template>

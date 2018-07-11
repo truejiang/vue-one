@@ -1,6 +1,5 @@
 import { DATA_URL, OPTIONS } from './config'
 import axios from 'axios'
-// import qs from 'qs'
 import { getParams } from './params'
 
 // 获取日期列表信息
@@ -48,6 +47,34 @@ export function getArticle (itemId) {
 export function getOnePageList (date) {
   let url = DATA_URL.onePageList + date + '%2000:00:00'
   let data = Object.assign({}, OPTIONS)
+  let params = getParams(url, data)
+  return new Promise((resolve, reject) => {
+    axios.get(params).then((res) => {
+      resolve(res)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+// 获取阅读列表信息
+export function getReadingList (data = {}) {
+  let url = DATA_URL.readList
+  data = Object.assign(data, OPTIONS)
+  let params = getParams(url, data)
+  return new Promise((resolve, reject) => {
+    axios.get(params).then((res) => {
+      resolve(res)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+// 获取音乐列表信息
+export function getMusicList (data = {}) {
+  let url = DATA_URL.musicList
+  data = Object.assign(data, OPTIONS)
   let params = getParams(url, data)
   return new Promise((resolve, reject) => {
     axios.get(params).then((res) => {

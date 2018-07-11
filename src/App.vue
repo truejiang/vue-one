@@ -3,7 +3,7 @@
     <v-header @showSlider="toggleSlider"></v-header>
     <v-slider :show="show" @hideSlider="toggleSlider"></v-slider>
     <keep-alive>
-      <router-view/>
+      <router-view class="content-wrapper"></router-view>
     </keep-alive>
   </div>
 </template>
@@ -32,8 +32,6 @@ export default {
       }).then(() => {
         getOneList(this.currentDate).then((res) => {
           this.setCurrentOneList(res.data.data)
-
-          console.log(this.currentOneList)
         })
       })
     }
@@ -60,4 +58,6 @@ export default {
 
 <style lang="stylus">
 @import '~@/assets/stylus/index'
+.content-wrapper
+  margin-top 44px
 </style>

@@ -5,7 +5,9 @@ export const DATA_URL = {
   dataIdList: 'http://v3.wufazhuce.com:8000/api/onelist/idlist/',
   oneList: 'http://v3.wufazhuce.com:8000/api/onelist/',
   article: 'http://v3.wufazhuce.com:8000/api/essay/',
-  onePageList: 'http://v3.wufazhuce.com:8000/api/hp/bymonth/'
+  onePageList: 'http://v3.wufazhuce.com:8000/api/hp/bymonth/',
+  readList: 'http://v3.wufazhuce.com:8000/api/channel/reading/more/0',
+  musicList: 'http://v3.wufazhuce.com:8000/api/channel/music/more/0'
 }
 
 /*

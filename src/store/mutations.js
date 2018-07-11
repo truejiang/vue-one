@@ -9,6 +9,9 @@ const mutations = {
   },
   [types.SET_CURRENT_ONE_LIST] (state, currentOneList) {
     state.currentOneList = currentOneList
+  },
+  [types.SET_ONE_IMAGE_TEXT_DETAIL] (state, oneImageTextDetail) {
+    state.oneImageTextDetail = oneImageTextDetail
   }
 }
 
