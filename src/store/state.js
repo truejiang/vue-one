@@ -3,7 +3,8 @@ const state = {
   dateList: '',
   currentDate: '',
   currentOneList: {},
-  oneImageTextDetail: {}
+  oneImageTextDetail: {},
+  movieDetail: {}
 }
 
 export default state

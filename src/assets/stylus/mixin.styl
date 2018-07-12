@@ -10,3 +10,12 @@ overflowHiddenEllipsisLines($line-height, $lines)
   line-height unit($line-height, 'px')
   max-height unit($line-height * $lines, 'px')
   -webkit-line-clamp $lines
+
+.normalBgImageStyle
+  background-repeat no-repeat
+  background-position center center
+  background-size cover
+// 常用背景图片设置
+backgroundImage($url)
+  @extend .normalBgImageStyle
+  background-image url($url)

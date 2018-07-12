@@ -6,8 +6,11 @@ export const DATA_URL = {
   oneList: 'http://v3.wufazhuce.com:8000/api/onelist/',
   article: 'http://v3.wufazhuce.com:8000/api/essay/',
   onePageList: 'http://v3.wufazhuce.com:8000/api/hp/bymonth/',
-  readList: 'http://v3.wufazhuce.com:8000/api/channel/reading/more/0',
-  musicList: 'http://v3.wufazhuce.com:8000/api/channel/music/more/0'
+  readList: 'http://v3.wufazhuce.com:8000/api/channel/reading/more/',
+  musicList: 'http://v3.wufazhuce.com:8000/api/channel/music/more/',
+  musicDetailList: 'http://v3.wufazhuce.com:8000/api/music/detail/',
+  movieList: 'http://v3.wufazhuce.com:8000/api/channel/movie/more/',
+  movieDetail: 'http://v3.wufazhuce.com:8000/api/movie/detail/'
 }
 
 /*

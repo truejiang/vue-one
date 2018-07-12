@@ -10,7 +10,10 @@ import ReadDetail from '@/components/read/readDetail/readDetail'
 import Music from '@/components/music/music'
 import MusicIndex from '@/components/music/musicIndex/musicIndex'
 import MusicDetail from '@/components/music/musicDetail/musicDetail'
-
+import Movie from '@/components/movie/movie'
+import MovieIndex from '@/components/movie/movieIndex/movieIndex'
+import MovieDetail from '@/components/movie/movieDetail/movieDetail'
+import About from '@/components/about/about'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +25,6 @@ export default new Router({
     },
     {
       path: '/one',
-      name: 'One',
       component: One,
       children: [
         {
@@ -39,7 +41,6 @@ export default new Router({
     },
     {
       path: '/read',
-      name: 'Read',
       component: Read,
       children: [
         {
@@ -56,7 +57,6 @@ export default new Router({
     },
     {
       path: '/music',
-      name: 'Music',
       component: Music,
       children: [
         {
@@ -70,6 +70,27 @@ export default new Router({
           component: MusicDetail
         }
       ]
+    },
+    {
+      path: '/movie',
+      component: Movie,
+      children: [
+        {
+          path: '',
+          name: 'MovieIndex',
+          component: MovieIndex
+        },
+        {
+          path: ':id',
+          name: 'MovieDetail',
+          component: MovieDetail
+        }
+      ]
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })

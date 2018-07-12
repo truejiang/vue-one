@@ -1,5 +1,5 @@
 <template>
-  <div class="read-list-wrapper">
+  <div>
     <router-view></router-view>
   </div>
 </template>

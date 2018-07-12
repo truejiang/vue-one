@@ -1,6 +1,6 @@
 <template>
   <div class="read-detail-wrapper">
-    <div class="inner-wrapper" ref="scrollWrapper">
+    <div class="inner-wrapper">
       <div class="content-box">
         <h2 class="title">{{content.hp_title}}</h2>
         <hr class="underline">
@@ -14,21 +14,18 @@
 <script>
 import { getArticle } from '@/api/getData'
 export default {
-  data () {
-    return {
-      content: {}
-    }
-  },
   computed: {
     id () {
       return this.$route.params.id
     }
   },
+  data () {
+    return {
+      content: ''
+    }
+  },
   created () {
     this._getArticle()
-  },
-  mounted () {
-    this.$refs.scrollWrapper.style.height = document.body.clientHeight + 'px'
   },
   methods: {
     _getArticle () {

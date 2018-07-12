@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-transform-modules": "^0.1.1",
+    "create-keyframe-animation": "^0.1.0",
     "cube-ui": "^1.10.2",
     "qs": "^6.5.2",
     "stylus": "^0.54.5",

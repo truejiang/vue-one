@@ -3,7 +3,9 @@
     <div class="inner-wrapper" ref="scrollWrapper">
       <cube-scroll
       ref="scroll"
-      :data="readList">
+      :data="readList"
+      :options="scrollOptions"
+      @pulling-up="onPullingUp">
         <div class="list-item"
           v-for="item in readList"
           :key="item.item_id"
@@ -27,23 +29,31 @@ import { getReadingList } from '@/api/getData'
 export default {
   data () {
     return {
-      readList: []
+      readList: [],
+      id: 0,
+      scrollOptions: {
+        pullUpLoad: true
+      }
     }
   },
   created () {
-    this._getReadingList()
+    this._getReadingList(this.id)
   },
   mounted () {
     this.$refs.scrollWrapper.style.height = document.body.clientHeight + 'px'
   },
   methods: {
-    _getReadingList () {
-      getReadingList().then((res) => {
+    _getReadingList (id) {
+      getReadingList(id).then((res) => {
         this.readList = this.readList.concat(res.data.data)
+        this.id = this.readList[this.readList.length - 1].id
       })
     },
     toRead (id) {
       this.$router.push({name: 'ReadDetail', params: {id}})
+    },
+    onPullingUp () {
+      this._getReadingList(this.id)
     }
   }
 }

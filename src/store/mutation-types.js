@@ -6,3 +6,5 @@ export const SET_CURRENT_DATE = 'SET_CURRENT_DATE'
 export const SET_CURRENT_ONE_LIST = 'SET_CURRENT_ONE_LIST'
 // 点击后图文详情的内容
 export const SET_ONE_IMAGE_TEXT_DETAIL = 'SET_ONE_IMAGE_TEXT_DETAIL'
+// 设置影视详情
+export const SET_MOVIE_DETAIL = 'SET_MOVIE_DETAIL'

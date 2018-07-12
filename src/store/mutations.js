@@ -12,6 +12,9 @@ const mutations = {
   },
   [types.SET_ONE_IMAGE_TEXT_DETAIL] (state, oneImageTextDetail) {
     state.oneImageTextDetail = oneImageTextDetail
+  },
+  [types.SET_MOVIE_DETAIL] (state, movieDetail) {
+    state.movieDetail = movieDetail
   }
 }
 

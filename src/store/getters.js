@@ -9,3 +9,6 @@ export const currentOneList = state => state.currentOneList
 
 // 点击的图文详情内容
 export const oneImageTextDetail = state => state.oneImageTextDetail
+
+// 影视阅读详情
+export const movieDetail = state => state.movieDetail

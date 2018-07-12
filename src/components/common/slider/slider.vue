@@ -17,8 +17,16 @@
             音乐
           </router-link>
         </li>
-        <li>影视</li>
-        <li>关于</li>
+        <li @click="hideSlider">
+          <router-link tag="span" to="/movie">
+            影视
+          </router-link>
+        </li>
+        <li @click="hideSlider">
+          <router-link tag="span" to="/about">
+            关于
+          </router-link>
+        </li>
       </ul>
     </div>
     <div class="bg" @click="hideSlider"></div>
@@ -79,8 +87,10 @@ export default {
     ul
       margin-top calc(44px - 1em)
       li
-        padding 1em
         color rgba(0, 0, 0, 0.6)
+        span
+          display inline-block
+          padding  1em
   .bg
     flex 1
     height 100%

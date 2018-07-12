@@ -58,9 +58,9 @@ export function getOnePageList (date) {
 }
 
 // 获取阅读列表信息
-export function getReadingList (data = {}) {
-  let url = DATA_URL.readList
-  data = Object.assign(data, OPTIONS)
+export function getReadingList (id = 0) {
+  let url = DATA_URL.readList + id
+  let data = Object.assign({}, OPTIONS)
   let params = getParams(url, data)
   return new Promise((resolve, reject) => {
     axios.get(params).then((res) => {
@@ -72,9 +72,51 @@ export function getReadingList (data = {}) {
 }
 
 // 获取音乐列表信息
-export function getMusicList (data = {}) {
-  let url = DATA_URL.musicList
-  data = Object.assign(data, OPTIONS)
+export function getMusicList (id = 0) {
+  let url = DATA_URL.musicList + id
+  let data = Object.assign({}, OPTIONS)
+  let params = getParams(url, data)
+  return new Promise((resolve, reject) => {
+    axios.get(params).then((res) => {
+      resolve(res)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+// 获取音乐文章详情，传入文章id
+export function getMusicArticle (itemId) {
+  let url = DATA_URL.musicDetailList + itemId
+  let data = Object.assign({}, OPTIONS)
+  let params = getParams(url, data)
+  return new Promise((resolve, reject) => {
+    axios.get(params).then((res) => {
+      resolve(res)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+// 获取影视列表信息
+export function getMovieList (id = 0) {
+  let url = DATA_URL.movieList + id
+  let data = Object.assign({}, OPTIONS)
+  let params = getParams(url, data)
+  return new Promise((resolve, reject) => {
+    axios.get(params).then((res) => {
+      resolve(res)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+// 获取影视详情
+export function getMovieDetail (id) {
+  let url = DATA_URL.movieDetail + id
+  let data = Object.assign({}, OPTIONS)
   let params = getParams(url, data)
   return new Promise((resolve, reject) => {
     axios.get(params).then((res) => {
