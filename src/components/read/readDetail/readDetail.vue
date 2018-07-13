@@ -6,6 +6,10 @@
         <hr class="underline">
         <p class="author">文 / {{content.hp_author}}</p>
         <div class="text-content" v-html="content.hp_content"></div>
+        <atricle-footer
+        v-if="atricleFooterInfo.flag"
+        :atricleFooterInfo="atricleFooterInfo"
+        :showAuthor='true'></atricle-footer>
       </div>
     </div>
   </div>
@@ -13,6 +17,7 @@
 
 <script>
 import { getArticle } from '@/api/getData'
+import atricleFooter from '@/components/common/atricleFooter/atricleFooter'
 export default {
   computed: {
     id () {
@@ -21,7 +26,10 @@ export default {
   },
   data () {
     return {
-      content: ''
+      content: '',
+      atricleFooterInfo: {
+        flag: false
+      }
     }
   },
   created () {
@@ -31,9 +39,22 @@ export default {
     _getArticle () {
       getArticle(this.id).then((res) => {
         this.content = Object.assign({}, res.data.data)
-        console.log(this.content)
+        let { hp_author_introduce: complieName, copyright, author: [{summary, user_name: userName, web_url: photoUrl}] } = this.content
+        this.atricleFooterInfo = Object.assign({}, {
+          complieName,
+          copyright,
+          atricleAuthorInfo: {
+            summary,
+            user_name: userName,
+            photo_url: photoUrl
+          },
+          flag: true
+        })
       })
     }
+  },
+  components: {
+    atricleFooter
   }
 }
 </script>

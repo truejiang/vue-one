@@ -13,7 +13,6 @@ import vHeader from '@/components/common/header/header'
 import vSlider from '@/components/common/slider/slider'
 import { mapGetters, mapMutations } from 'vuex'
 import { getDateList, getOneList } from '@/api/getData'
-
 export default {
   name: 'App',
   data () {
@@ -60,4 +59,5 @@ export default {
 @import '~@/assets/stylus/index'
 .content-wrapper
   margin-top 44px
+  padding-bottom 20px
 </style>

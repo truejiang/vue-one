@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     hideSlider () {
-      console.log(1)
       this.$emit('hideSlider')
     }
   },

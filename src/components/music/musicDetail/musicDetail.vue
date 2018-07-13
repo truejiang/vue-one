@@ -1,6 +1,6 @@
 <template>
   <div class="music-detail-wrapper">
-    <div class="cover">
+    <div class="cover" v-if="content">
       <div class="cover-bg"
         :style="{backgroundImage: 'url(' + content.cover +')'}"
         :class="[play ? 'playing' : 'playing pause']"></div>
@@ -18,20 +18,29 @@
       <h2 class="text-title">{{content.story_title}}</h2>
       <p class="author-info">文 / {{author}}</p>
     </div>
-    <div class="content" v-html="content.story"></div>
+    <div class="content">
+      <div v-html="content.story"></div>
+      <atricle-footer
+      :showAuthor='true'
+      :atricleFooterInfo="atricleFooterInfo"
+      v-if="this.atricleFooterInfo.flag"></atricle-footer>
+    </div>
   </div>
 </template>
 
 <script>
 import { getMusicArticle } from '@/api/getData'
-
+import atricleFooter from '@/components/common/atricleFooter/atricleFooter'
 export default {
   data () {
     return {
-      content: {},
+      content: false,
       play: false,
       album: '',
-      author: ''
+      author: '',
+      atricleFooterInfo: {
+        flag: false
+      }
     }
   },
   computed: {
@@ -48,11 +57,25 @@ export default {
         this.content = Object.assign({}, res.data.data)
         this.album = this.content.info.split('\r\n')[0].split('：')[1]
         this.author = this.content.author_list[0].user_name
+        let { charge_edt: complieName, copyright, story_author: {summary, user_name: userName, web_url: photoUrl} } = this.content
+        this.atricleFooterInfo = Object.assign({}, {
+          complieName,
+          copyright,
+          atricleAuthorInfo: {
+            summary,
+            user_name: userName,
+            photo_url: photoUrl
+          },
+          flag: true
+        })
       })
     },
     togglePlay () {
       this.play ? this.play = false : this.play = true
     }
+  },
+  components: {
+    atricleFooter
   }
 }
 </script>

@@ -7,6 +7,7 @@
       <p class="author">文 / {{content.author}}</p>
       <p class="tips">因为api的作者没有提供影视图文详情接口，这里用store合并了下前后的内容，所以没有图片和样式</p>
       <div class="content" v-html="content.content"></div>
+      <atricle-footer :atricleFooterInfo="atricleFooterInfo" v-if="this.atricleFooterInfo.flag"></atricle-footer>
     </div>
   </div>
 </template>
@@ -14,10 +15,15 @@
 <script>
 import { getMovieDetail } from '@/api/getData'
 import { mapGetters } from 'vuex'
+import atricleFooter from '@/components/common/atricleFooter/atricleFooter'
+
 export default {
   data () {
     return {
-      content: {}
+      content: {},
+      atricleFooterInfo: {
+        flag: false
+      }
     }
   },
   computed: {
@@ -38,8 +44,17 @@ export default {
         let obj = this.movieDetail
         this.content = Object.assign(obj, res.data.data)
         console.log(this.content)
+        let { charge_edt: complieName, copyright } = this.content
+        this.atricleFooterInfo = Object.assign({}, {
+          complieName,
+          copyright,
+          flag: true
+        })
       })
     }
+  },
+  components: {
+    atricleFooter
   }
 }
 </script>

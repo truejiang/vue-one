@@ -45,9 +45,6 @@ export default {
       })
     }
   },
-  updated () {
-
-  },
   computed: {
     ...mapGetters([
       'currentOneList'
